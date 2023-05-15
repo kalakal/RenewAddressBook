@@ -73,5 +73,17 @@ public class Contacts {
     public String getZip() {
         return zipCode;
     }
+    @Override
+    public String toString() {
+        return "Contact Details [" +
+                "Name -> " + firstName + " " + lastName +
+                " | Phone Number -> " + phoneNumber +
+                " | Email-ID -> " + emailID +
+                " | Address -> " + address +
+                " | City -> " + city +
+                " | State -> " + state +
+                " | Zip-code -> " + zipCode + "]";
+    }
+
 }
 
