@@ -25,6 +25,8 @@ public class AddressBookMain {
 
         addressBook.addContact();
         System.out.println(addressBook.displayContact());
+        addressBook.deleteContact();
+        System.out.println(addressBook.displayContact());
     }
 }
 
