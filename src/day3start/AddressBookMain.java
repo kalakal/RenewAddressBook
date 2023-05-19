@@ -1,32 +1,48 @@
 package day3start;
+import java.util.Scanner;
+
 public class AddressBookMain {
     public static void main(String[] args) {
-        System.out.println("Welcome to our AddressBook Problems");
+        System.out.println("***| Address Book System |***\n");
 
+        Scanner sc = new Scanner(System.in);
 
-        Contacts contact = new Contacts();
-
-        contact.setFirstName("Sayed");
-        contact.setLastName("Faizan");
-        contact.setAddress("Rajouri");
-        contact.setCity("Jammu");
-        contact.setState("Jammu kashmir");
-        contact.setZip("185231");
-        contact.setPhoneNumber("(+91) 9906276508");
-        contact.setEmail("sayed@faizan.com");
-
-        System.out.println(contact.getFirstName() + " " +contact.getLastName());
-        System.out.println(contact.getPhoneNumber());
-        System.out.println(contact.getEmail());
-        System.out.println(contact.getAddress() + ",");
-        System.out.println(contact.getCity() + ", " + contact.getState());
-        System.out.println(contact.getZip());
         AddressBook addressBook = new AddressBook();
 
-        addressBook.addContact();
-        System.out.println(addressBook.displayContact());
-        addressBook.deleteContact();
-        System.out.println(addressBook.displayContact());
+        boolean isOpen = true;
+
+        while (isOpen) {
+
+            System.out.println("\nSelect Operation....");
+            System.out.println("1. Enter Contact");
+            System.out.println("2. Edit Contact");
+            System.out.println("3. Delete Contact");
+            System.out.println("4. Display Contacts");
+            System.out.println("5. Exit Address Book");
+
+            int choice = sc.nextInt();
+
+            switch (choice) {
+                case 1:
+                    addressBook.addContact();
+                    break;
+
+                case 2:
+                    addressBook.editContact();
+                    break;
+
+                case 3:
+                    addressBook.deleteContact();
+                    break;
+
+                case 4:
+                    addressBook.displayContact();
+                    break;
+
+                case 5:
+                    isOpen = false;
+                    break;
+            }
+        }
     }
 }
-
