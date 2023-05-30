@@ -1,5 +1,7 @@
 package day3start;
 
+import java.util.List;
+
 public class Contacts {
 
     private String firstName;
@@ -14,7 +16,9 @@ public class Contacts {
     public static String getfirstName() {
         return null;
     }
-
+    public List<Contacts> getContacts() {
+        return getContacts();
+    }
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;

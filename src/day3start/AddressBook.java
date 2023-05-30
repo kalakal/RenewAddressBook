@@ -2,6 +2,7 @@ package day3start;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
 class AddressBook {
@@ -17,12 +18,6 @@ class AddressBook {
             System.out.println("Duplicate entry. This person already exists in the address book.");
             return;
         }
-
-        // Prompt for other contact details and create a new Person object
-        // ...
-
-        // Add the new Person object to the contacts list
-        // ...
     }
 
     boolean isDuplicate(String name) {
@@ -75,10 +70,6 @@ class AddressBook {
                 break;
             }
 
-
-
-// Other getter and setter methods for person details
-// ...
         }
         return false;
     }
@@ -86,7 +77,7 @@ class AddressBook {
     void deleteContact() {
         System.out.print("\nEnter First Name: ");
 
-         String firstName = scanner.nextLine();
+        String firstName = scanner.nextLine();
 
         for (Contacts contact : list) {
 
@@ -109,5 +100,30 @@ class AddressBook {
                 System.out.println(contact);
             }
         }
+    }
+
+    public static void searchPersonByCityOrState(Map<String, AddressBook> addressBooks, String keyword) {
+        List<Contacts> searchResults = new ArrayList<>();
+        for (AddressBook addressBook : addressBooks.values()) {
+            List<Contacts> contacts = addressBook.getContacts();
+            for (Contacts person : contacts) {
+                if (person.getCity().equalsIgnoreCase(keyword) || person.getState().equalsIgnoreCase(keyword)) {
+                    searchResults.add(person);
+                }
+            }
+        }
+        if (searchResults.isEmpty()) {
+            System.out.println("No matching contacts found in the specified city or state.");
+        } else {
+            System.out.println("Search Results:");
+            for (Contacts person : searchResults) {
+                System.out.println(person);
+            }
+        }
+
+    }
+
+    public List<Contacts> getContacts() {
+        return (List<Contacts>) contacts;
     }
 }
