@@ -2,6 +2,8 @@ package day3start;
 
 import java.util.*;
 
+import static day3start.AddressBook.searchPersonByCityOrState;
+
 public class AddressBookMain {
     public static void main(String[] args) {
         System.out.println("***| Address Book System |***\n");
@@ -78,7 +80,11 @@ public class AddressBookMain {
                     break;
 
                 case 3:
-                    addressBook.deleteContact();
+                    System.out.print("Enter the city or state to search: ");
+                    sc.nextLine();
+                    String searchKeyword = sc.nextLine();
+                    Map<String, AddressBook> addressBooks = null;
+                    searchPersonByCityOrState(addressBooks, searchKeyword);
                     break;
 
                 case 4:
