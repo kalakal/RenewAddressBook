@@ -11,6 +11,11 @@ public class Contacts {
     private String phoneNumber;
     private String emailID;
 
+    public static String getfirstName() {
+        return null;
+    }
+
+
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
@@ -22,10 +27,10 @@ public class Contacts {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
+
     public String getLastName() {
         return lastName;
     }
-
 
     public void setPhoneNumber(String  phoneNumber) {
         this.phoneNumber = phoneNumber;

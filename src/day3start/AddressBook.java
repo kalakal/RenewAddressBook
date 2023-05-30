@@ -1,51 +1,50 @@
 package day3start;
+
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
-public class AddressBook {
-
+class AddressBook {
     ArrayList<Contacts> list = new ArrayList<>();
+    Contacts contacts = new Contacts();
     Scanner scanner = new Scanner(System.in);
 
-    void addContact(){
+    public void addContact() {
+        System.out.print("Enter Person Name: ");
+        String name = scanner.nextLine();
 
-        Contacts contact = new Contacts();
+        if (isDuplicate(name)) {
+            System.out.println("Duplicate entry. This person already exists in the address book.");
+            return;
+        }
 
-        System.out.print("Enter First Name: ");
-        contact.setFirstName(scanner.nextLine());
+        // Prompt for other contact details and create a new Person object
+        // ...
 
-        System.out.print("Enter Last Name: ");
-        contact.setLastName(scanner.nextLine());
-
-        System.out.print("Enter Phone Number: ");
-        contact.setPhoneNumber(scanner.nextLine());
-
-        System.out.print("Enter Email-ID: ");
-        contact.setEmail(scanner.nextLine());
-
-        System.out.print("Enter address: ");
-        contact.setAddress(scanner.nextLine());
-
-        System.out.print("Enter City: ");
-        contact.setCity(scanner.nextLine());
-
-        System.out.print("Enter State: ");
-        contact.setState(scanner.nextLine());
-
-        System.out.print("Enter Zip-code: ");
-        contact.setZip(scanner.nextLine());
-
-        list.add(contact);
+        // Add the new Person object to the contacts list
+        // ...
     }
 
-    void editContact() {
+    boolean isDuplicate(String name) {
+        System.out.println("Enter first name");
+        String firstName = scanner.next();
+        for (Contacts contact : list) {
+            if (Contacts.getfirstName().equalsIgnoreCase(name)) {
+                return true;
+            }
+        }
+        return false;
+    }
 
+
+    boolean editContact() {
+        Scanner scanner = new Scanner(System.in);
         System.out.print("\nEnter First Name: ");
         String firstName = scanner.next();
 
-        for (Contacts contact : list){
+        for (Contacts contact : list) {
 
-            if (firstName.equals(contact.getFirstName())){
+            if (firstName.equals(contact.getFirstName())) {
 
                 System.out.println("\nContact Found\n");
                 System.out.println("Edit Contact Details....\n");
@@ -75,34 +74,37 @@ public class AddressBook {
                 contact.setZip(scanner.nextLine());
                 break;
             }
-            else
-                System.out.println("Contact Not Found");
+
+
+
+// Other getter and setter methods for person details
+// ...
         }
+        return false;
     }
 
-    void deleteContact(){
+    void deleteContact() {
         System.out.print("\nEnter First Name: ");
-        String firstName = scanner.nextLine();
 
-        for (Contacts contact : list){
+         String firstName = scanner.nextLine();
 
-            if (firstName.equals(contact.getFirstName())){
+        for (Contacts contact : list) {
+
+            if (firstName.equals(contact.getFirstName())) {
 
                 list.remove(contact);
                 System.out.println("Contact deleted successfully");
                 break;
-            }
-            else
+            } else
                 System.out.println("Contact Not Found");
         }
     }
 
-    void displayContact(){
+    void displayContact() {
 
-        if(list.isEmpty()){
+        if (list.isEmpty()) {
             System.out.println("Address Book is Empty");
-        }
-        else {
+        } else {
             for (Contacts contact : list) {
                 System.out.println(contact);
             }
